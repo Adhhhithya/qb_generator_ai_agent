@@ -1,0 +1,83 @@
+####################################
+# Python / Backend
+####################################
+
+# Virtual environments
+venv/
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+####################################
+# Database
+####################################
+
+# SQLite / local DBs (if any ever added)
+*.db
+*.sqlite3
+
+# Alembic (if added later)
+alembic.ini
+alembic/
+
+####################################
+# Node / Frontend
+####################################
+
+# Node modules
+node_modules/
+
+# Vite / build output
+dist/
+build/
+
+# Local env files
+frontend/.env
+frontend/.env.*
+
+# npm / yarn / pnpm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+####################################
+# OS / Editor junk
+####################################
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+####################################
+# Misc
+####################################
+
+# Cache
+.cache/
+
+# Temporary files
+*.tmp
+*.swp
