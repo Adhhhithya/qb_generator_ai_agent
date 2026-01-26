@@ -1,19 +1,58 @@
-# React + TypeScript + Vite
+# Outcome-Aligned Question Bank AI - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional, modern React application for AI-powered question paper generation with syllabus alignment and quality auditing.
 
-Currently, two official plugins are available:
+## 🎨 Design System
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Color Palette
+- **Primary Blue**: Professional and trustworthy (#3B82F6)
+- **Success Green**: Growth and completion (#10B981)
+- **Warning Amber**: Attention and caution (#F59E0B)
+- **Error Red**: Critical states (#EF4444)
+- **Analytics Purple**: Data visualization (#A855F7)
+- **Highlight Cyan**: Featured content (#06B6D4)
 
-## React Compiler
+### Key Features
+- ✨ Clean, modern UI with smooth animations
+- 📱 Fully responsive design
+- 🎯 Educational-focused professional theme
+- ♿ Accessibility-first approach
+- 🚀 Optimized performance with Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **React 18.3.1** - UI Framework
+- **TypeScript 5.9.3** - Type Safety
+- **Vite 7.3.1** - Build Tool & Dev Server
+- **Tailwind CSS 4.1.18** - Styling
+- **Framer Motion 11.15.0** - Animations
+- **Lucide React** - Icon Library
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+The app will be available at `http://localhost:5173`
+
+## 📁 Project Structure
 
 ```js
 export default defineConfig([

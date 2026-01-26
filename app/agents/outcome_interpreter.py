@@ -1,6 +1,7 @@
 
 from app.models.outcome import CourseOutcome
 from app.core.llm_safe import SafeLLM
+from app.core.generation_safety import UNIVERSAL_SYSTEM_PREFIX
 
 
 class OutcomeInterpreterAgent:
@@ -8,14 +9,14 @@ class OutcomeInterpreterAgent:
         self.llm = SafeLLM()
 
     async def interpret(self, outcome: CourseOutcome) -> dict:
-        system_prompt = (
-            "You are an academic curriculum expert.\n"
-            "CRITICAL RULES:\n"
-            "- You MUST return ONLY valid JSON\n"
-            "- No markdown, no explanation, no prose\n"
-            "- No leading or trailing text\n"
-            "- If unsure, return {}\n"
-        )
+        system_prompt = UNIVERSAL_SYSTEM_PREFIX + """
+You are an academic curriculum expert.
+CRITICAL RULES:
+- You MUST return ONLY valid JSON
+- No markdown, no explanation, no prose
+- No leading or trailing text
+- If unsure, return {}
+"""
 
         user_prompt = f"""
 Course Outcome:

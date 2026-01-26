@@ -66,6 +66,28 @@ The system is composed of three major layers:
 
 ---
 
+## Integration Architecture
+
+The frontend and backend are loosely coupled via a RESTful API.
+
+### Connection Details
+* **Backend Origin**: `http://127.0.0.1:8000` (FastAPI default)
+* **Frontend Origin**: `http://localhost:5173` (Vite default)
+* **Protocol**: HTTP/JSON
+
+### Configuration
+1. **Frontend Client**: The API base URL is defined in `frontend/src/api/client.ts`.
+   ```typescript
+   const API_BASE = "http://127.0.0.1:8000"
+   ```
+2. **CORS (Cross-Origin Resource Sharing)**: The backend is configured to accept requests from the frontend origin. This is handled in `app/main.py` using `CORSMiddleware`.
+
+### Data Flow
+1. **Request**: Frontend components (e.g., `usePaperGenerator` hook) call functions in `src/api/`.
+2. **Execution**: TypeScript functions use `fetch` to send JSON payloads to `http://127.0.0.1:8000/<endpoint>`.
+3. **Response**: Backend processes the request (generating questions, accessing DB) and returns JSON.
+4. **State Update**: Frontend updates React state (e.g., questions list) based on the response.
+
 ## Technology Stack
 
 ### Backend

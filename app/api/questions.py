@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 from typing import Optional
 from app.db.session import SessionLocal
-from app.db.models import CourseOutcomeDB, QuestionDB
+from app.db.models import CourseOutcome, Question
 from app.api.schemas import QuestionListResponse, QuestionOut
 
 router = APIRouter(prefix="/questions", tags=["Question Bank"])
@@ -17,18 +17,18 @@ def get_questions(
     db = SessionLocal()
 
     query = (
-        db.query(QuestionDB, CourseOutcomeDB)
-        .join(CourseOutcomeDB, QuestionDB.outcome_id == CourseOutcomeDB.id)
+        db.query(Question, CourseOutcome)
+        .join(CourseOutcome, Question.outcome_id == CourseOutcome.id)
     )
 
     if code:
-        query = query.filter(CourseOutcomeDB.code == code)
+        query = query.filter(CourseOutcome.code == code)
 
     if bloom_level:
-        query = query.filter(QuestionDB.bloom_level == bloom_level)
+        query = query.filter(Question.bloom_level == bloom_level)
 
     if difficulty:
-        query = query.filter(QuestionDB.difficulty == difficulty)
+        query = query.filter(Question.difficulty == difficulty)
 
     results = query.limit(limit).all()
     db.close()

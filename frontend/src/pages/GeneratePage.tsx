@@ -1,16 +1,18 @@
-import GenerateForm from "../components/Generate/GenerateForm"
+import GenerateWizard from "../components/Generate/GenerateWizard"
 
 const GeneratePage = () => {
   return (
-    <div className="max-w-4xl mx-auto">
-      <h2 className="text-2xl font-semibold text-slate-800 mb-1">
-        Generate Question
-      </h2>
-      <p className="text-sm text-slate-500 mb-6">
-        Create outcome-aligned, Bloom-verified questions
-      </p>
+    <div className="max-w-6xl mx-auto py-8">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-bold text-slate-800 mb-2">
+          Paper Generator Wizard
+        </h2>
+        <p className="text-slate-500">
+          Define exam details, configure sections, and generate a complete Question Paper.
+        </p>
+      </div>
 
-      <GenerateForm />
+      <GenerateWizard />
     </div>
   )
 }

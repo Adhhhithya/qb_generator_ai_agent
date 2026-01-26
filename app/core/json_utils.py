@@ -1,21 +1,30 @@
 import json
+import re
 
-
-def safe_json_parse(text: str) -> dict:
-    # Short-circuit if already a dict
-    if isinstance(text, dict):
-        return text
-    
-    if not text:
+def safe_llm_json_parse(raw: str):
+    if not raw or not raw.strip():
         raise ValueError("Empty LLM response")
 
-    text = text.strip()
+    raw = raw.strip()
 
-    # Remove markdown fences if present
-    if text.startswith("```"):
-        text = text.split("```")[1]
+    # Remove any leftover markdown
+    raw = raw.replace("```json", "").replace("```", "")
 
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError as e:
-        raise ValueError(f"Invalid JSON from LLM: {e}")
+    # Extract only the JSON object (prefer objects over arrays for consistency)
+    start = raw.find("{")
+    end = raw.rfind("}") + 1
+    
+    # Fallback to array if no object found
+    if start == -1 or end == -1:
+        start = raw.find("[")
+        end = raw.rfind("]") + 1
+    
+    if start == -1 or end == -1:
+        raise ValueError("No JSON object or array found in LLM response")
+
+    raw = raw[start:end]
+
+    # Escape illegal newlines inside JSON strings
+    raw = re.sub(r'(?<!\\)\n', '\\\\n', raw)
+
+    return json.loads(raw)

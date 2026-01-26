@@ -81,3 +81,13 @@ desktop.ini
 # Temporary files
 *.tmp
 *.swp
+
+####################################
+# Project Specific
+####################################
+error_log.txt
+verify_output.txt
+verify_result.json
+temp.py
+list_models.py
+todo.txt

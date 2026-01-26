@@ -7,3 +7,6 @@ python-dotenv
 httpx
 groq
 python-dotenv
+reportlab
+PyPDF2
+python-docx

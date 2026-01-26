@@ -1,4 +1,5 @@
 from app.core.llm_safe import SafeLLM
+from app.core.generation_safety import UNIVERSAL_SYSTEM_PREFIX
 
 class BloomRewriteAgent:
     def __init__(self):

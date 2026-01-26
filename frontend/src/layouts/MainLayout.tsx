@@ -4,42 +4,16 @@ type Props = {
   setPage: (p: string) => void
 }
 
+import TopNavTabs from "../components/layout/TopNavTabs"
+
 const MainLayout = ({ children, page, setPage }: Props) => {
   return (
-    <div className="min-h-screen flex bg-slate-100">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white border-r border-slate-200 p-4">
-        <h2 className="text-lg font-bold text-indigo-600 mb-6">
-          Outcome QB
-        </h2>
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-900">
+      {/* Top Navigation */}
+      <TopNavTabs activeTab={page} onTabChange={setPage} />
 
-        <nav className="space-y-2">
-          <button
-            onClick={() => setPage("generate")}
-            className={`w-full text-left px-3 py-2 rounded-md transition ${
-              page === "generate"
-                ? "bg-indigo-50 text-indigo-700 font-medium"
-                : "text-slate-600 hover:bg-slate-100"
-            }`}
-          >
-            Generate Question
-          </button>
-
-          <button
-            onClick={() => setPage("bank")}
-            className={`w-full text-left px-3 py-2 rounded-md transition ${
-              page === "bank"
-                ? "bg-indigo-50 text-indigo-700 font-medium"
-                : "text-slate-600 hover:bg-slate-100"
-            }`}
-          >
-            Question Bank
-          </button>
-        </nav>
-      </aside>
-
-      {/* Main Content */}
-      <main className="flex-1 p-6 overflow-y-auto">
+      {/* Main Content Area */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-6 py-8">
         {children}
       </main>
     </div>

@@ -1,8 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.db import base  # noqa
 from app.api.health import router as health_router
 from app.api.generate import router as generate_router
 from app.api.questions import router as questions_router
+from app.api.analytics import router as analytics_router
+from app.api.export import router as export_router
+from app.api.export_pdf import router as export_pdf_router
+from app.api.papers import router as papers_router
+from app.api.dashboard import router as dashboard_router
+from app.api.syllabus import router as syllabus_router
 
 
 app = FastAPI(
@@ -25,4 +32,9 @@ app.add_middleware(
 app.include_router(health_router)
 app.include_router(generate_router)
 app.include_router(questions_router)
-
+app.include_router(analytics_router)
+app.include_router(export_router)
+app.include_router(export_pdf_router)
+app.include_router(papers_router)
+app.include_router(dashboard_router)
+app.include_router(syllabus_router)
